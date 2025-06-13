@@ -1,7 +1,7 @@
 import cv2
 import os
 
-def extract_frames(video_path, output_folder):
+def extract_frames(video_path, output_folder, interval):
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -12,7 +12,7 @@ def extract_frames(video_path, output_folder):
     count = 0
     id = 0
 
-    save_interval = 10  # Save every 10 frame
+    save_interval = interval  # Save every 10 frame
     while success:
         # Define the output filename
         frame_filename = os.path.join(output_folder, f"{id:05d}.png")
@@ -31,7 +31,8 @@ def extract_frames(video_path, output_folder):
 if __name__ == '__main__':
     import sys
     name = sys.argv[1]
+    interval = int(sys.argv[2])
     video_path = f'data/{name}.mp4'
     output_folder = f'data/{name}'  # Replace with your desired output folder
     print('Extracting frames from video...')
-    extract_frames(video_path, output_folder)
+    extract_frames(video_path, output_folder, interval)
