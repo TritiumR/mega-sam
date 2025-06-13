@@ -14,18 +14,18 @@
 # limitations under the License.
 # ==============================================================================
 
-
-DATA_PATH=/home/chuanruo/mega-sam/testing
+NAME=$1
+DATA_PATH=/home/chuanruo/mega-sam/data/$NAME
 
 
 # Run Raft Optical Flows
 CUDA_VISIBLE_DEVICES=0 python cvd_opt/preprocess_flow.py \
 --datapath=$DATA_PATH \
 --model=cvd_opt/raft-things.pth \
---scene_name testing --mixed_precision
+--scene_name $NAME --mixed_precision
 
 # Run CVD optmization
 CUDA_VISIBLE_DEVICES=0 python cvd_opt/cvd_opt.py \
---scene_name testing \
+--scene_name $NAME \
 --w_grad 2.0 --w_normal 5.0
 

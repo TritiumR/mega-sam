@@ -13,19 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-
-VIDEO_PATH=/home/chuanruo/mega-sam/testing
+NAME=$1
+VIDEO_PATH=/home/chuanruo/mega-sam/data/$NAME
 
 # Run DepthAnything
 CUDA_VISIBLE_DEVICES=0 python Depth-Anything/run_videos.py --encoder vitl \
 --load-from Depth-Anything/checkpoints/depth_anything_vitl14.pth \
 --img-path $VIDEO_PATH \
---outdir Depth-Anything/video_visualization/testing
+--outdir Depth-Anything/video_visualization/$NAME
 
 # Run UniDepth
 export PYTHONPATH="${PYTHONPATH}:$(pwd)/UniDepth"
 
 CUDA_VISIBLE_DEVICES=0 python UniDepth/scripts/demo_mega-sam.py \
---scene-name testing \
+--scene-name $NAME \
 --img-path $VIDEO_PATH \
 --outdir UniDepth/outputs

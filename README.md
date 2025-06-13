@@ -32,20 +32,12 @@ Anaconda.
 
 2.  Download and include [RAFT checkpoint](https://drive.google.com/drive/folders/1sWDsfuZ3Up38EUQt7-JDTT1HcGHuJgvT) at mega-sam/cvd_opt/raft-things.pth
 
-### Running MegaSaM on in-the-wild video
+### Running MegaSaM on in-the-wild video (Chuanruo)
 
-1.  Precompute mono-depth (Please modify img-path in the script):
-    `./mono_depth_scripts/run_mono-depth_demo.sh`
+1.  Put your video in `data/$NAME`
 
-2.  Running camera tracking (Please modify DATA_PATH in the script. Add
-    argument --opt_focal to enable focal length optimization):
-    `./tools/evaluate_demo.sh`
+2.  Run the following script:
+` ./run.sh $NAME`
 
-3.  Running consistent video depth optimization given estimated cameras (Please
-    modify datapath in the script):
-    `./cvd_opt/cvd_opt_demo.sh`
-
-4. [Chuanruo] Visualize the results:
-    `visualize_cvd.py --npz_path {path_to_sgd_cvd_hr.npz} --output_path {path_to_output_video} --fps {fps}`
 
 

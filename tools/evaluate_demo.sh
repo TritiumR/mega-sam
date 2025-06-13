@@ -13,15 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-
-VIDEO_PATH=/home/chuanruo/mega-sam/testing
+NAME=$1
+VIDEO_PATH=/home/chuanruo/mega-sam/data/$NAME
 CKPT_PATH=checkpoints/megasam_final.pth
 
 
 CUDA_VISIBLE_DEVICE=0 python camera_tracking_scripts/test_demo.py \
 --datapath=$VIDEO_PATH \
 --weights=$CKPT_PATH \
---scene_name testing \
+--scene_name $NAME \
 --mono_depth_path $(pwd)/Depth-Anything/video_visualization \
 --metric_depth_path $(pwd)/UniDepth/outputs \
 --disable_vis $@
