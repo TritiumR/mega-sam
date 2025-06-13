@@ -1,22 +1,7 @@
-# MegaSaM
-
-<!-- # 🚧 This repository is still not done and being uploaded, please stand by. 🚧  -->
-
-[Project Page](https://mega-sam.github.io/index.html) | [Paper](https://arxiv.org/abs/2412.04463)
-
-This code accompanies the paper
-
-**MegaSam: Accurate, Fast and Robust Casual Structure and Motion from Casual
-Dynamic Videos** \
-Zhengqi Li, Richard Tucker, Forrester Cole, Qianqian Wang, Linyi Jin, Vickie Ye,
-Angjoo Kanazawa, Aleksander Holynski, Noah Snavely
-
-*This is not an officially supported Google product.*
-
 ## Clone
 
 Make sure to clone the repository with the submodules by using:
-`git clone --recursive git@github.com:mega-sam/mega-sam.git`
+`git clone --recursive git@github.com:TritiumR/mega-sam.git`
 
 ## Instructions for installing dependencies
 
