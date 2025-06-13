@@ -1,0 +1,9 @@
+outputs
+outputs_cvd
+Depth-Anything/checkpoints
+Depth-Anything/video_visualization
+cache_flow
+reconstructions
+data
+UniDepth/outputs
+checkpoints

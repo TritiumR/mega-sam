@@ -15,26 +15,17 @@
 # ==============================================================================
 
 
-evalset=(
-  swing
-  breakdance-flare
-)
-
-DATA_PATH=/home/zhengqili/filestore/DAVIS/DAVIS/JPEGImages/480p
+DATA_PATH=/home/chuanruo/mega-sam/testing
 
 
 # Run Raft Optical Flows
-for seq in ${evalset[@]}; do
-  CUDA_VISIBLE_DEVICES=0 python cvd_opt/preprocess_flow.py \
-  --datapath=$DATA_PATH/$seq \
-  --model=cvd_opt/raft-things.pth \
-  --scene_name $seq --mixed_precision
-done
+CUDA_VISIBLE_DEVICES=0 python cvd_opt/preprocess_flow.py \
+--datapath=$DATA_PATH \
+--model=cvd_opt/raft-things.pth \
+--scene_name testing --mixed_precision
 
 # Run CVD optmization
-for seq in ${evalset[@]}; do
-  CUDA_VISIBLE_DEVICES=0 python cvd_opt/cvd_opt.py \
-  --scene_name $seq \
-  --w_grad 2.0 --w_normal 5.0
-done
+CUDA_VISIBLE_DEVICES=0 python cvd_opt/cvd_opt.py \
+--scene_name testing \
+--w_grad 2.0 --w_normal 5.0
 

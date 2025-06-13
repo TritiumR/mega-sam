@@ -14,22 +14,15 @@
 # limitations under the License.
 # ==============================================================================
 
-DATA_PATH=/home/zhengqili/filestore/DAVIS/DAVIS/JPEGImages/480p
+VIDEO_PATH=/home/chuanruo/mega-sam/testing
 CKPT_PATH=checkpoints/megasam_final.pth
 
-evalset=(
-   swing
-   breakdance-flare
-)
 
-
-for seq in ${evalset[@]}; do
-    CUDA_VISIBLE_DEVICE=0 python camera_tracking_scripts/test_demo.py \
-    --datapath=$DATA_PATH/$seq \
-    --weights=$CKPT_PATH \
-    --scene_name $seq \
-    --mono_depth_path $(pwd)/Depth-Anything/video_visualization \
-    --metric_depth_path $(pwd)/UniDepth/outputs \
-    --disable_vis $@
-done
+CUDA_VISIBLE_DEVICE=0 python camera_tracking_scripts/test_demo.py \
+--datapath=$VIDEO_PATH \
+--weights=$CKPT_PATH \
+--scene_name testing \
+--mono_depth_path $(pwd)/Depth-Anything/video_visualization \
+--metric_depth_path $(pwd)/UniDepth/outputs \
+--disable_vis $@
 

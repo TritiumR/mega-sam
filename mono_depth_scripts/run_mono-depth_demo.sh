@@ -14,28 +14,18 @@
 # limitations under the License.
 # ==============================================================================
 
-
-evalset=(
-  swing
-  breakdance-flare
-)
-
-DATA_DIR=/home/zhengqili/filestore/DAVIS/DAVIS/JPEGImages/480p
+VIDEO_PATH=/home/chuanruo/mega-sam/testing
 
 # Run DepthAnything
-for seq in ${evalset[@]}; do
-  CUDA_VISIBLE_DEVICES=0 python Depth-Anything/run_videos.py --encoder vitl \
-  --load-from Depth-Anything/checkpoints/depth_anything_vitl14.pth \
-  --img-path $DATA_DIR/$seq \
-  --outdir Depth-Anything/video_visualization/$seq
-done
+CUDA_VISIBLE_DEVICES=0 python Depth-Anything/run_videos.py --encoder vitl \
+--load-from Depth-Anything/checkpoints/depth_anything_vitl14.pth \
+--img-path $VIDEO_PATH \
+--outdir Depth-Anything/video_visualization/testing
 
 # Run UniDepth
 export PYTHONPATH="${PYTHONPATH}:$(pwd)/UniDepth"
 
-for seq in ${evalset[@]}; do
-  CUDA_VISIBLE_DEVICES=0 python UniDepth/scripts/demo_mega-sam.py \
-  --scene-name $seq \
-  --img-path $DATA_DIR/$seq \
-  --outdir UniDepth/outputs
-done
+CUDA_VISIBLE_DEVICES=0 python UniDepth/scripts/demo_mega-sam.py \
+--scene-name testing \
+--img-path $VIDEO_PATH \
+--outdir UniDepth/outputs
