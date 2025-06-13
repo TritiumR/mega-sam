@@ -47,59 +47,21 @@ Anaconda.
 
 2.  Download and include [RAFT checkpoint](https://drive.google.com/drive/folders/1sWDsfuZ3Up38EUQt7-JDTT1HcGHuJgvT) at mega-sam/cvd_opt/raft-things.pth
 
-### Running MegaSaM on Sintel
+### Running MegaSaM on in-the-wild video
 
-1.  Download and unzip [Sintel data](https://drive.google.com/file/d/1J0BGtdmFlkC679C6gA9NHgWRSmeeASdU/view?usp=sharing)
-
-2.  Precompute mono-depth (Please modify img-path in the script):
-    `./mono_depth_scripts/run_mono-depth_sintel.sh`
-
-3.  Run camera tracking (Please modify DATA_PATH in the script. Adding
-    argument --opt_focal to enable focal length optimization):
-    `./tools/evaluate_sintel.sh`
-
-4.  Running consistent video depth optimization given estimated cameras (Please
-    modify datapath in the script): `./cvd_opt/cvd_opt_sintel.sh`
-
-5.  Evaluate camera poses and depths: \
-    `python ./evaluations_poses/evaluate_sintel.py`
-
-    `python ./evaluations_depth/evaluate_depth_ours_sintel.py`
-
-### Running MegaSaM on DyCheck
-
-1.  Download [Dycheck data](https://drive.google.com/drive/folders/1jmurlt73uIosTOnvy05VWzg0zkvEak9M?usp=sharing)
-
-2.  Precompute mono-depth (Please modify img-path in the script):
-    `./mono_depth_scripts/run_mono-depth_dycheck.sh`
-
-3.  Running camera tracking (Please modify DATA_PATH in the script. Add
-    argument --opt_focal to enable focal length optimization):
-    `./tools/evaluate_dycheck.sh`
-
-4.  Running consistent video depth optimization given estimated cameras (Please
-    modify datapath in the script):
-    `./cvd_opt/cvd_opt_dycheck.sh`
-
-5.  Evaluate camera poses and depths: \
-    `python ./evaluations_poses/evaluate_dycheck.py`
-
-    `python ./evaluations_depth/evaluate_depth_ours_dycheck.py`
-
-### Running MegaSaM on in-the-wild video, for example from DAVIS videos
-
-1.  Download example [DAVIS data](https://drive.google.com/file/d/1mis066CUvfBtDZWZ9-ONDqCdno5nmYLe/view?usp=sharing)
-
-2.  Precompute mono-depth (Please modify img-path in the script):
+1.  Precompute mono-depth (Please modify img-path in the script):
     `./mono_depth_scripts/run_mono-depth_demo.sh`
 
-3.  Running camera tracking (Please modify DATA_PATH in the script. Add
+2.  Running camera tracking (Please modify DATA_PATH in the script. Add
     argument --opt_focal to enable focal length optimization):
     `./tools/evaluate_demo.sh`
 
-4.  Running consistent video depth optimization given estimated cameras (Please
+3.  Running consistent video depth optimization given estimated cameras (Please
     modify datapath in the script):
     `./cvd_opt/cvd_opt_demo.sh`
+
+4. [Chuanruo] Visualize the results:
+    `visualize_cvd.py --npz_path {path_to_sgd_cvd_hr.npz} --output_path {path_to_output_video} --fps {fps}`
 
 ### Contact
 
