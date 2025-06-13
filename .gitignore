@@ -7,3 +7,5 @@ reconstructions
 data
 UniDepth/outputs
 checkpoints
+ego4d_data
+visualizations
