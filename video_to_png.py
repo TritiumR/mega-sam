@@ -20,7 +20,7 @@ def extract_frames(video_path, output_folder, start_frame, end_frame, interval):
             success, image = vidcap.read()
             count += 1
             continue
-        if count > end_frame:
+        if end_frame != -1 and count > end_frame:
             break
         # Save the current frame as a PNG image
         if count % save_interval == 0:

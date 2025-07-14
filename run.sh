@@ -15,7 +15,7 @@ python visualize_cvd.py --npz_path outputs_cvd/"$name"_sgd_cvd_hr.npz --output_p
 
 python reconstruct_background.py --name $name
 
-../blender-app/blender -b -P ply2obj_texture.py -- --input visualizations/"$name"/mesh.ply --output visualizations/"$name"/mesh.obj
+../blender-app/blender -b -P ply2obj_texture.py -- visualizations/"$name"/mesh.ply visualizations/"$name"/mesh.obj
 
 cd ../IsaacLab
 
