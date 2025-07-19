@@ -51,7 +51,7 @@ class MegaSamLoader:
         return cam_coords, rgb
 
 def main(
-    data_path: Path = Path(__file__).parent / "outputs_cvd/ca6e9ec9-46ac-4a02-8034-7c31157dc52c_sgd_cvd_hr.npz",
+    data_path: Path = Path(__file__).parent / "outputs_cvd/72cb4dd3-c8cf-4bda-9efe-26b66ed6829e_sgd_cvd_hr.npz",
     downsample_factor: int = 1,
     max_frames: int = 300,
     share: bool = False,

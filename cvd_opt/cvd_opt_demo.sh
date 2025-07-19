@@ -15,7 +15,7 @@
 # ==============================================================================
 
 NAME=$1
-DATA_PATH=/home/chuanruo/mega-sam/data/$NAME
+DATA_PATH=/home/chuanruo/mega-sam/data/$NAME/undistorted
 
 
 # Run Raft Optical Flows

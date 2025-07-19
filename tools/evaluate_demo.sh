@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 NAME=$1
-VIDEO_PATH=/home/chuanruo/mega-sam/data/$NAME
+VIDEO_PATH=/home/chuanruo/mega-sam/data/$NAME/undistorted
 CKPT_PATH=checkpoints/megasam_final.pth
 
 

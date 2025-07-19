@@ -14,7 +14,7 @@
 # limitations under the License.
 # ==============================================================================
 NAME=$1
-VIDEO_PATH=/home/chuanruo/mega-sam/data/$NAME
+VIDEO_PATH=/home/chuanruo/mega-sam/data/$NAME/undistorted
 
 # Run DepthAnything
 CUDA_VISIBLE_DEVICES=0 python Depth-Anything/run_videos.py --encoder vitl \

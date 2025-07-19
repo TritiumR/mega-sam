@@ -3,15 +3,19 @@ start_frame=$2
 end_frame=$3
 interval=$4
 
-python video_to_png.py ego4d $name $start_frame $end_frame $interval
+# python video_to_png.py ego4d $name $start_frame $end_frame $interval
 
-./mono_depth_scripts/run_mono-depth_demo.sh $name
+# cd ../GeoCalib
 
-./tools/evaluate_demo.sh $name
+# conda run --no-capture-output -n geocalib python run.py --name $name
 
-./cvd_opt/cvd_opt_demo.sh $name
+# cd ../mega-sam
 
-python visualize_cvd.py --npz_path outputs_cvd/"$name"_sgd_cvd_hr.npz --output_path visualizations/"$name"_"$interval".mp4 --fps 30
+# ./mono_depth_scripts/run_mono-depth_demo.sh $name
+
+# ./tools/evaluate_demo.sh $name
+
+# ./cvd_opt/cvd_opt_demo.sh $name
 
 python reconstruct_background.py --name $name
 
