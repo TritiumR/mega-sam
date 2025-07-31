@@ -204,7 +204,7 @@ def main():
     parser.add_argument('--downsample', type=float, default=0.01, help='Downsample voxel size (0 to disable)')
     parser.add_argument('--frame_idx', type=int, default=None, help='Process only a specific frame (for debugging)')
     parser.add_argument('--density_radius', type=float, default=0.01, help='Radius for density-based filtering')
-    parser.add_argument('--min_points', type=int, default=30, help='Minimum number of points required within radius for density filtering')
+    parser.add_argument('--min_points', type=int, default=20, help='Minimum number of points required within radius for density filtering')
     
     args = parser.parse_args()
 
@@ -326,9 +326,9 @@ def main():
     if args.downsample > 0:
         combined_pcd = combined_pcd.voxel_down_sample(args.downsample)
     
-    # Save point cloud as obj with colors
-    o3d.io.write_point_cloud(os.path.join(output_dir, 'pointcloud.ply'), combined_pcd)
-    print(f"Point cloud saved to {os.path.join(output_dir, 'pointcloud.ply')}")
+    # # Save point cloud as obj with colors
+    # o3d.io.write_point_cloud(os.path.join(output_dir, 'pointcloud.ply'), combined_pcd)
+    # print(f"Point cloud saved to {os.path.join(output_dir, 'pointcloud.ply')}")
 
     # Reconstruct mesh
     point_cloud_with_normals = estimate_normals(combined_pcd)
